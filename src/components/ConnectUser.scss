@@ -1,0 +1,15 @@
+.ConnectUser {
+  margin: 0 auto;
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    img {
+      margin: 10px;
+      width: 45px;
+    }
+
+  }
+}

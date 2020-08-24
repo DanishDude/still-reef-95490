@@ -1,0 +1,23 @@
+.RepoTable {
+
+  .table {
+    max-height: 78vh;
+    margin: 0 auto;
+    width: 1200px;
+    max-width: 98vw;
+
+    .repo {
+      
+      .avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+
+      button {
+        margin-right: 5px;
+      }
+    }
+  }
+}
