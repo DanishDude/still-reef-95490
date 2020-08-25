@@ -15,6 +15,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/nemo', (req, res) => {
+  try {
+    return res.status(200).send('Look behind you !');
+  } catch (err) {
+    return res.status(500).send(err);
+  }
+});
+
 app.post('/oauth', (req, res) => {
   const { client_id, redirect_uri, client_secret, code } = req.body;
   const data = new FormData();
