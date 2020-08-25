@@ -15,6 +15,17 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/test', (req, res, next) => {
+  try {
+    const { textback } = req.body;
+  
+    res.status(200).send(textback);
+
+  } catch (err) {
+    next(err);
+  };
+});
+
 app.post('/oauth', (req, res) => {
   const { client_id, redirect_uri, client_secret, code } = req.body;
   const data = new FormData();
