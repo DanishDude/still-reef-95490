@@ -19,7 +19,7 @@ app.get('/test', (req, res, next) => {
   try {
     const { textback } = req.body;
   
-    res.status(200).send(textback);
+    res.status(200).send('you wrote: ' + textback);
 
   } catch (err) {
     next(err);
