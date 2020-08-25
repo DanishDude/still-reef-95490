@@ -17,9 +17,8 @@ app.use((req, res, next) => {
 
 app.get('/test', (req, res, next) => {
   try {
-    const { textback } = req.body;
-  
-    res.status(200).send('you wrote: ' + textback);
+    const result = 'you wrote: ' + req.body.textback;
+    res.status(200).send(result);
 
   } catch (err) {
     next(err);
