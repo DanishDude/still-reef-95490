@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/test', (req, res, next) => {
+app.post('/test', (req, res, next) => {
   try {
     const result = 'you wrote: ' + req.body.textback;
     res.status(200).send(result);
