@@ -24,6 +24,7 @@ export const userLogin = code => dispatch => {
 
   const options = {
     method: 'POST',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     body: JSON.stringify(requestData)
   };
 
