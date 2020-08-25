@@ -9,6 +9,7 @@ import './Container.scss';
 
 function App() {
   const { isLoggedIn } = useSelector(state => state.user)
+  console.log(process.env.REACT_APP_REDIRECT_URI);
 
   return (
     <div className="App">
