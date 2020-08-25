@@ -15,7 +15,7 @@ function App() {
     e.preventDefault();
 
     const options = {
-      headers = {
+      headers: {
         'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({textback: e.target.value})
