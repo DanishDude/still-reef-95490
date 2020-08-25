@@ -14,7 +14,14 @@ function App() {
   const handleTest = e => {
     e.preventDefault();
 
-    fetch(`${process.env.REACT_APP_PROXY_URI}/test`,{body: e.target.value})
+    const options = {
+      headers = {
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({textback: e.target.value})
+    }
+
+    fetch(`${process.env.REACT_APP_PROXY_URI}/test`, options)
       .then(res => res.json)
       .then(payload => console.log('payload: ', payload))
       .catch(err => console.log('err: ', err));
@@ -28,7 +35,7 @@ function App() {
         <input type="text" name="textback" id="textback" />
         <button type="submit">Send</button>
       </form>
-      
+
       <div className="container">
         <ConnectUser />
         {isLoggedIn ? <UserRepos /> : ''}
