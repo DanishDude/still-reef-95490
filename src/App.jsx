@@ -13,7 +13,7 @@ function App() {
   const getNemo = e => {
     e.preventDefault();
 
-    fetch(`${process.env.REACT_APP_PROXY_URI}/nemo`)
+    fetch(`${process.env.REACT_APP_PROXY_URI}/`)
       .then(res => res.json())
       .then(payload => console.log(payload))
       .catch(error => console.log(error));

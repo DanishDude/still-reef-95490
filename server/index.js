@@ -15,9 +15,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/nemo', (req, res) => {
+app.get('/', (req, res) => {
   try {
-    return res.status(200).send('Look behind you !');
+    return res.status(200).send({Title: 'Still Reef !'});
   } catch (err) {
     return res.status(500).send(err);
   }
