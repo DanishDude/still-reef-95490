@@ -27,7 +27,7 @@ export const userLogin = code => dispatch => {
     body: JSON.stringify(requestData)
   };
 
-  fetch(`${proxy_uri}/api/oauth`, options)
+  fetch(`${proxy_uri}/oauth`, options)
     .then(res => res.json())
     .then(user =>  dispatch(successLogin(user)))
     .catch(err => dispatch(errorLogin(err)));

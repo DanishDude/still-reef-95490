@@ -14,7 +14,7 @@ function App() {
   const getNemo = e => {
     e.preventDefault();
     
-    fetch(`${process.env.REACT_APP_PROXY_URI}/api/`)
+    fetch(`${process.env.REACT_APP_PROXY_URI}/`)
       .then(res => res.json())
       .then(payload => setTextback(payload.Title))
       .catch(error => console.log(error));
