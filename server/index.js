@@ -17,9 +17,9 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   try {
-    return res.status(200).send({Title: 'Still Reef !'});
+    return res.status(200).json({Title: 'Still Reef !'});
   } catch (err) {
-    return res.status(500).send(err);
+    return res.status(500).json(err);
   }
 });
 
