@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const app = express();
 
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'text/*' }));
@@ -15,7 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   console.log('here');
   try {
     return res.status(200).json({Title: 'Still Reef !'});
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
   }
 });
 
-app.post('/oauth', (req, res) => {
+app.post('/api/oauth', (req, res) => {
   const { client_id, redirect_uri, client_secret, code } = req.body;
   const data = new FormData();
   data.append('client_id', client_id);
