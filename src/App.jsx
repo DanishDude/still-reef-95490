@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ConnectUser from './components/ConnectUser';
 import RepoResults from './components/RepoResults';
@@ -9,13 +9,14 @@ import './Container.scss';
 
 function App() {
   const { isLoggedIn } = useSelector(state => state.user);
+  const [textback, setTextback] = useState('');
 
   const getNemo = e => {
     e.preventDefault();
-
+    
     fetch(`${process.env.REACT_APP_PROXY_URI}/`)
       .then(res => res.json())
-      .then(payload => console.log(payload))
+      .then(payload => setTextback(payload.Title))
       .catch(error => console.log(error));
   };
 
@@ -23,7 +24,8 @@ function App() {
     <div className="App">
       <h5>Github Repository Manager</h5>
 
-      <button onClick={e => getNemo(e)}>Get Nemo</button> 
+      <button onClick={e => getNemo(e)}>Get Nemo</button>
+      <p>{textback}</p>
 
       <div className="container">
         <ConnectUser />
