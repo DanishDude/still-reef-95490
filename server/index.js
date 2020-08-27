@@ -6,7 +6,6 @@ const logger = require('morgan');
 
 const app = express();
 
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'text/*' }));
