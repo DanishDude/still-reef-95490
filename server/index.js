@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 app.get('/api', (req, res) => {
   console.log('here');
   try {
-    return res.status(200).json({Title: 'Still Reef !'});
+    return res.status(200).send({Title: 'Still Reef !'});
   } catch (err) {
     return res.status(500).json(err);
   }
