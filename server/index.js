@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const FormData = require('form-data');
 const fetch = require('node-fetch');
+const FormData = require('form-data');
 const logger = require('morgan');
+const path = require('path');
 
 const app = express();
 
@@ -12,16 +13,19 @@ app.use(bodyParser.json({ type: 'text/*' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.setHeader('Content-Type', 'application/json');
   next();
 });
 
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'public')));
+}
+
 app.get('/api', (req, res) => {
-  // try {
+  try {
     return res.status(200).send({Title: 'Still Reef !'});
-  // } catch (err) {
-  //   return res.status(500).send({msg: 'something went wrong', err});
-  // }
+  } catch (err) {
+    return res.status(500).send({msg: 'something went wrong', err});
+  }
 });
 
 app.post('/api/oauth', (req, res) => {
