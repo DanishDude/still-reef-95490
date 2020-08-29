@@ -27,7 +27,7 @@ function App() {
         console.log('PAYLOAD ', payload);
         setTextback(payload.Title);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.error(error))
   };
 
   return (
