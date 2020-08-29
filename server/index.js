@@ -19,7 +19,7 @@ app.get('/api', (req, res) => {
   try {
     return res.status(200).send({Title: 'Still Reef !'});
   } catch (err) {
-    return res.status(500).json(err);
+    return res.status(500).send({msg: 'something went wrong', err});
   }
 });
 
