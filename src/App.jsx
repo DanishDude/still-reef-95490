@@ -23,7 +23,10 @@ function App() {
     
     fetch(`${process.env.REACT_APP_PROXY_URI}/`, options)
       .then(res => res.json())
-      .then(payload => setTextback(payload.Title))
+      .then(payload => {
+        console.log('PAYLOAD ', payload);
+        setTextback(payload.Title);
+      })
       .catch(error => console.log(error));
   };
 
