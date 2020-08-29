@@ -13,8 +13,15 @@ function App() {
 
   const getNemo = e => {
     e.preventDefault();
+
+    const options = {
+      headerts: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }
     
-    fetch(`${process.env.REACT_APP_PROXY_URI}/`)
+    fetch(`${process.env.REACT_APP_PROXY_URI}/`, options)
       .then(res => res.json())
       .then(payload => setTextback(payload.Title))
       .catch(error => console.log(error));
