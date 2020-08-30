@@ -5,18 +5,23 @@ const fetch = require('node-fetch');
 const FormData = require('form-data');
 const logger = require('morgan');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'text/*' }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../public')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  });
 }
 
-app.use(cors());
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
 //   next();
